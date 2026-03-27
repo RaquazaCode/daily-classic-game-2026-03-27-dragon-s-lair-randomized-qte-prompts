@@ -5,14 +5,10 @@
   <p>React quickly to shifting peril prompts, survive three hits, and chain precise timing for score multipliers.</p>
 </div>
 
+## Media
 <div align="center">
   <img src="artifacts/playwright/board-start.png" alt="Opening screen" width="72%" />
 </div>
-
-## GIF Captures
-- Opening Escape Sequence: `artifacts/playwright/clip-opening-escape-sequence.gif`
-- Prompt Chain Combo: `artifacts/playwright/clip-prompt-chain-combo.gif`
-- Pause Reset Drill: `artifacts/playwright/clip-pause-reset-drill.gif`
 
 ## Quick Start
 ```bash
@@ -52,3 +48,8 @@ pnpm dev
 - `tests/game-core.test.mjs`: rule-level assertions
 - `tests/capture.spec.mjs`: Playwright capture and action payloads
 - `artifacts/playwright/`: screenshots, payloads, text snapshots, GIF placeholders
+
+## GIF Captures
+- Opening Escape Sequence: `artifacts/playwright/clip-opening-escape-sequence.gif`
+- Prompt Chain Combo: `artifacts/playwright/clip-prompt-chain-combo.gif`
+- Pause Reset Drill: `artifacts/playwright/clip-pause-reset-drill.gif`

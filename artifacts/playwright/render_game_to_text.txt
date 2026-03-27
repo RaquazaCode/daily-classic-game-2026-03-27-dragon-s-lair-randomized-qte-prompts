@@ -1,0 +1,16 @@
+{
+  "mode": "running",
+  "timeMs": 7600,
+  "score": 520,
+  "streak": 4,
+  "lives": 3,
+  "lastOutcome": "Success +160",
+  "activePrompt": null,
+  "history": [
+    "Success +160",
+    "Success +140",
+    "Success +120",
+    "Success +100",
+    "Run started"
+  ]
+}
