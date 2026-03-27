@@ -13,6 +13,7 @@ test("captures deterministic dragon run", async ({ page }) => {
   const verification = await page.evaluate(() => window.__runDeterministicVerification());
   expect(verification.score).toBeGreaterThan(0);
   expect(verification.streak).toBeGreaterThanOrEqual(1);
+  expect(verification.render.score).toBeGreaterThan(0);
 
   await page.screenshot({ path: "artifacts/playwright/board-live.png", fullPage: true });
 
@@ -20,9 +21,9 @@ test("captures deterministic dragon run", async ({ page }) => {
   await page.waitForTimeout(100);
   await page.screenshot({ path: "artifacts/playwright/board-paused.png", fullPage: true });
 
-  const renderText = await page.evaluate(() => window.render_game_to_text());
-  const state = JSON.parse(renderText);
-  expect(state.mode).toBe("paused");
+  const pausedText = await page.evaluate(() => window.render_game_to_text());
+  const pausedState = JSON.parse(pausedText);
+  expect(pausedState.mode).toBe("paused");
 
   const actionsStart = {
     schema: "web_game_playwright_client",
@@ -48,7 +49,7 @@ test("captures deterministic dragon run", async ({ page }) => {
     frames: 8,
   };
 
-  fs.writeFileSync("artifacts/playwright/render_game_to_text.txt", `${JSON.stringify(state, null, 2)}\n`);
+  fs.writeFileSync("artifacts/playwright/render_game_to_text.txt", `${JSON.stringify(verification.render, null, 2)}\n`);
   fs.writeFileSync("artifacts/playwright/actions-start.json", `${JSON.stringify(actionsStart, null, 2)}\n`);
   fs.writeFileSync("artifacts/playwright/actions-prompt-chain.json", `${JSON.stringify(actionsCombo, null, 2)}\n`);
   fs.writeFileSync("artifacts/playwright/actions-pause-reset.json", `${JSON.stringify(actionsPauseReset, null, 2)}\n`);
